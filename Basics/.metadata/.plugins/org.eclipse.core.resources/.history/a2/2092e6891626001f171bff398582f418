@@ -1,0 +1,70 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class BloodGroupApp extends Application {
+    private static final Map<String, String[]> DONATE_TO = new HashMap<>();
+    private static final Map<String, String[]> RECEIVE_FROM = new HashMap<>();
+
+    static {
+        DONATE_TO.put("A+", new String[]{"A+", "AB+"});
+        DONATE_TO.put("A-", new String[]{"A+", "A-", "AB+", "AB-"});
+        DONATE_TO.put("B+", new String[]{"B+", "AB+"});
+        DONATE_TO.put("B-", new String[]{"B+", "B-", "AB+", "AB-"});
+        DONATE_TO.put("AB+", new String[]{"AB+"});
+        DONATE_TO.put("AB-", new String[]{"AB+", "AB-"});
+        DONATE_TO.put("O+", new String[]{"A+", "B+", "AB+", "O+"});
+        DONATE_TO.put("O-", new String[]{"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"});
+
+        RECEIVE_FROM.put("A+", new String[]{"A+", "A-", "O+", "O-"});
+        RECEIVE_FROM.put("A-", new String[]{"A-", "O-"});
+        RECEIVE_FROM.put("B+", new String[]{"B+", "B-", "O+", "O-"});
+        RECEIVE_FROM.put("B-", new String[]{"B-", "O-"});
+        RECEIVE_FROM.put("AB+", new String[]{"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"});
+        RECEIVE_FROM.put("AB-", new String[]{"A-", "B-", "AB-", "O-"});
+        RECEIVE_FROM.put("O+", new String[]{"O+", "O-"});
+        RECEIVE_FROM.put("O-", new String[]{"O-"});
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        Label selectLabel = new Label("Select Your Blood Group:");
+        ComboBox<String> bloodGroupComboBox = new ComboBox<>();
+        bloodGroupComboBox.getItems().addAll("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-");
+
+        Label donateLabel = new Label();
+        Label receiveLabel = new Label();
+        Button checkButton = new Button("Check Compatibility");
+
+        checkButton.setOnAction(e -> {
+            String selectedGroup = bloodGroupComboBox.getValue();
+            if (selectedGroup != null) {
+                String[] donateTo = DONATE_TO.get(selectedGroup);
+                String[] receiveFrom = RECEIVE_FROM.get(selectedGroup);
+                donateLabel.setText("Can Donate To: " + String.join(", ", donateTo));
+                receiveLabel.setText("Can Receive From: " + String.join(", ", receiveFrom));
+            } else {
+                donateLabel.setText("Please select a blood group.");
+                receiveLabel.setText("");
+            }
+        });
+
+        VBox layout = new VBox(10, selectLabel, bloodGroupComboBox, checkButton, donateLabel, receiveLabel);
+        Scene scene = new Scene(layout, 300, 200);
+
+        primaryStage.setTitle("Blood Group Compatibility");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}

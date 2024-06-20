@@ -1,0 +1,32 @@
+ div {
+     height: 150px;
+     width: 500px;
+     border: 1px solid red;
+     margin-left: 30%;
+ }
+
+ #box1 {
+     background-color: orangered;
+     margin-top: 100px;
+ }
+
+ #box2 {
+     background-color: whitesmoke;
+ }
+ #b2{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    border: 2px solid blue;
+    margin-top: 20px;
+    margin-left: 200px;
+    background-color: blue;
+ }
+
+ #box3 {
+     background-color: green;
+     box-sizing: border-box;
+ }
+ p{
+    font-family: 'Rubik Iso', cursive;
+ }

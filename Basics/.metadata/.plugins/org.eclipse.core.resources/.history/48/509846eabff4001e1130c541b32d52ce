@@ -1,0 +1,28 @@
+package test;
+import java.util.*;
+public class Testing {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner y=new Scanner(System.in);
+		
+		 int yh=100;
+		  if(yh<20) {
+			  System.out.println("IT'S LESS THAN 100");
+		  }
+          if(yh<30) {
+       	   System.out.println("IT'S LESS THAN 100");
+		  }
+         if(yh<23) {
+       	  System.out.println("IT'S LESS THAN 100");
+                  }
+        if(yh<24) {
+       	 System.out.println("IT'S LESS THAN 100");
+                 }
+           if(yh<29) {
+           	 System.out.println("IT'S LESS THAN 100");
+                 }
+            if(yh<230) {
+           	 System.out.println("IT'S greater  THAN 100");
+                  }
+	}
+}

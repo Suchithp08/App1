@@ -1,0 +1,12 @@
+import java.util.*;
+public class Preperation {
+
+	public static void main(String[] args) {
+		Scanner o=new Scanner(System.in);
+		int r=o.nextInt();
+		System.out.println("enter the number of names u need to add");
+		String name[]=new String[r];
+
+	}
+
+}

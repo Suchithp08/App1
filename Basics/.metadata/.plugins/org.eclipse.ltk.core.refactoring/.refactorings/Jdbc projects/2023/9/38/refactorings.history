@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Convert local variable &apos;Carexm.main(...).con&apos; in &apos;Carexm.main(...)&apos; to field&#x0D;&#x0A;- Original project: &apos;Jdbc projects&apos;&#x0D;&#x0A;- Original element: &apos;Carexm.main(...).con&apos;&#x0D;&#x0A;- Field name: &apos;con&apos;&#x0D;&#x0A;- Initialize field in method&#x0D;&#x0A;- Declared visibility: &apos;private&apos;&#x0D;&#x0A;- Declare field &apos;static&apos;" description="Convert local variable &apos;con&apos; to field" final="false" flags="2" id="org.eclipse.jdt.ui.promote.temp" initialize="1" input="/src&lt;{Carexm.java" name="con" selection="366 8" stamp="1695274354932" static="true" version="1.0" visibility="2"/>
+</session>

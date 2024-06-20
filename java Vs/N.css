@@ -1,0 +1,114 @@
+ /*#big{
+    background-color: chartreuse;
+    display: block;
+    height: 500px;
+    width: 500px; ///done
+    margin-top: 23%;
+    margin-bottom: 45%;
+
+}*/
+#big1
+{
+    background-color:burlywood;
+    display: inline-block;
+    height: 123px;
+    width: 134px; /*done*/
+    animation-name: spo;
+    animation-duration: 7s;
+    position: relative;
+
+}
+/*
+#big3
+{
+    background-color: red;
+    display: inline-block;
+    height: 123px;
+    width: 134px; done
+    animation-name: sp;
+    animation-duration: 7s;
+    position: relative;
+
+
+}#big2
+{
+    background-color:black;
+    display: inline-block;
+    height: 123px;
+    width: 134px;
+    animation-name: spr;
+    animation-duration: 7s;
+    position: relative;
+
+}
+@keyframes sp{
+0%{
+    top: 0%;
+    bottom: 0%;
+    background-color: red;
+}
+50%{
+    top: 189px;
+    left: 453px;
+    background-color: green;
+}
+90%{
+    bottom: 20px;
+    background-color: aqua;
+    
+
+    
+}
+100%{
+
+    background-color: blanchedalmond;
+}
+
+}
+@keyframes spr{
+    0%{
+ 
+        background-color: red;
+    }
+    50%{
+       
+        background-color: rgb(48, 248, 48);
+    }
+    90%{
+        
+        background-color: rgb(235, 57, 57);
+        
+    
+        
+    }
+    100%{
+        background-color: blanchedalmond;
+    }
+    
+    }*/
+    @keyframes spo{
+        0%{
+         
+            background-color: rgb(178, 216, 73);
+        }
+        50%{
+            top: 20%;
+            left: 33%;
+            background-color: rgb(56, 223, 56);
+        }
+        90%{
+            font-size: 34%;
+            top: 50%;
+            left: 33%;
+            background-color: rgb(0, 61, 61);
+            
+        
+            
+        }
+        100%{
+            bottom: 67%;
+            right: 23%;
+            background-color: rgb(222, 140, 18);
+        }
+        
+        }

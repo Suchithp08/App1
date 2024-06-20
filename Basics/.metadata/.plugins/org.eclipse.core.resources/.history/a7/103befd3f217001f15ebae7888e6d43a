@@ -1,0 +1,17 @@
+import java.util.*;
+public class Preperation {
+
+	public static void main(String[] args) {
+		Scanner o=new Scanner(System.in);
+		
+		System.out.println("enter the number of names u need to add");
+		int r=o.nextInt();
+		
+		for(int i=0;i<=r;i++) {
+			
+       String name  =o.nextLine();
+		}
+
+	}
+
+}

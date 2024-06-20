@@ -1,0 +1,97 @@
+package javafx.application;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
+
+public class BloodGroupAppSwing {
+    private static final Map<String, String[]> DONATE_TO = new HashMap<>();
+    private static final Map<String, String[]> RECEIVE_FROM = new HashMap<>();
+
+    static {
+        DONATE_TO.put("A+", new String[]{"A+", "AB+"});
+        DONATE_TO.put("A-", new String[]{"A+", "A-", "AB+", "AB-"});
+        DONATE_TO.put("B+", new String[]{"B+", "AB+"});
+        DONATE_TO.put("B-", new String[]{"B+", "B-", "AB+", "AB-"});
+        DONATE_TO.put("AB+", new String[]{"AB+"});
+        DONATE_TO.put("AB-", new String[]{"AB+", "AB-"});
+        DONATE_TO.put("O+", new String[]{"A+", "B+", "AB+", "O+"});
+        DONATE_TO.put("O-", new String[]{"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"});
+
+        RECEIVE_FROM.put("A+", new String[]{"A+", "A-", "O+", "O-"});
+        RECEIVE_FROM.put("A-", new String[]{"A-", "O-"});
+        RECEIVE_FROM.put("B+", new String[]{"B+", "B-", "O+", "O-"});
+        RECEIVE_FROM.put("B-", new String[]{"B-", "O-"});
+        RECEIVE_FROM.put("AB+", new String[]{"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"});
+        RECEIVE_FROM.put("AB-", new String[]{"A-", "B-", "AB-", "O-"});
+        RECEIVE_FROM.put("O+", new String[]{"O+", "O-"});
+        RECEIVE_FROM.put("O-", new String[]{"O-"});
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(BloodGroupAppSwing::createAndShowGUI);
+    }
+
+    private static void createAndShowGUI() {
+        // Create the frame
+        JFrame frame = new JFrame("Blood Group Compatibility");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+        frame.setLayout(new BorderLayout());
+
+        // Create components
+        JLabel selectLabel = new JLabel("Select Your Blood Group:");
+        JComboBox<String> bloodGroupComboBox = new JComboBox<>(new String[]{"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"});
+        JLabel donateLabel = new JLabel();
+        JLabel receiveLabel = new JLabel();
+        JButton checkButton = new JButton("Check Compatibility");
+
+        // Add action listener to the button
+        checkButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedGroup = (String) bloodGroupComboBox.getSelectedItem();
+                if (selectedGroup != null) {
+                    String[] donateTo = DONATE_TO.get(selectedGroup);
+                    String[] receiveFrom = RECEIVE_FROM.get(selectedGroup);
+                    donateLabel.setText("Can Donate To: " + String.join(", ", donateTo));
+                    receiveLabel.setText("Can Receive From: " + String.join(", ", receiveFrom));
+                } else {
+                    donateLabel.setText("Please select a blood group.");
+                    receiveLabel.setText("");
+                }
+            }
+        });
+
+        // Load the blood icon
+        JLabel iconLabel = new JLabel();
+        try {
+            ImageIcon icon = new ImageIcon("blood_icon.png"); // Replace with the path to your icon file
+            iconLabel.setIcon(icon);
+        } catch (Exception ex) {
+            System.out.println("Icon not found");
+        }
+
+        // Create a panel for the top section (icon and select label)
+        JPanel topPanel = new JPanel(new FlowLayout());
+        topPanel.add(iconLabel);
+        topPanel.add(selectLabel);
+
+        // Create a panel for the main content
+        JPanel mainPanel = new JPanel(new FlowLayout());
+        mainPanel.add(bloodGroupComboBox);
+        mainPanel.add(checkButton);
+        mainPanel.add(donateLabel);
+        mainPanel.add(receiveLabel);
+
+        // Add panels to the frame
+        frame.add(topPanel, BorderLayout.NORTH);
+        frame.add(mainPanel, BorderLayout.CENTER);
+
+        // Make the frame visible
+        frame.setVisible(true);
+    }
+}

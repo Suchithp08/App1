@@ -1,0 +1,43 @@
+package prati;
+import java.util.*;
+public class Pra {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("enerte");
+		Scanner qw=new Scanner(System.in);
+		int order1=qw.nextInt();
+		 switch(order1) {
+		  case 1&11:
+			  System.out.println("PULLIOGARE");
+			  break;
+		  case 2:
+			  System.out.println("POORI");
+			  break;
+		  case 3:
+			  System.out.println("DOSA");
+				  break;
+		  case 4:
+			  System.out.println("EDLI");
+			  break;
+		  case 5:
+			  System.out.println("CHAPATI");
+			  break;
+		  case 6:
+			  System.out.println("PALLAV");
+			  break;
+		  case 7:
+			  System.out.println("BISIBELEBATH");
+			  break;
+		  case 8:
+			  System.out.println("CHITRANNA");
+			  break;
+		  case 9:
+			  System.out.println("TOMMOTO_BATH");
+			  break; 
+		  default :
+			  System.err.println("plase select within above orders");
+		  }   
+	}
+
+}

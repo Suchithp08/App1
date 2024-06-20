@@ -1,0 +1,28 @@
+package test;
+import java.util.*;
+public class Testing {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner y=new Scanner(System.in);
+		class A {
+			int num;
+			String name;
+			int slry=3984756;
+			char s='k';
+			char p;
+			void kr() {
+				System.out.println("Enter the Name");
+	            String  name =y.nextLine();
+				System.out.println("predifined num   "+slry);
+				System.out.println("Given Char   "+s);
+				System.out.println("Defined in the main class   "+p);
+				System.out.println("Given INPUT BY THE USER NAME "+name);
+				System.out.println("Given Char   "+s);
+			}
+		}
+       A jk=new A();
+       jk.p='r';
+       jk.num=98;
+		jk.kr();	
+	}
+}
